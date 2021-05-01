@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2021 a las 07:27:43
+-- Tiempo de generación: 01-05-2021 a las 07:57:08
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.11
 
@@ -32,6 +32,15 @@ CREATE TABLE `artistas` (
   `nombre` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `artistas`
+--
+
+INSERT INTO `artistas` (`codigo`, `nombre`) VALUES
+(1, 'Billie Eilish'),
+(2, 'Post Malone'),
+(3, 'David Bowie');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +57,14 @@ CREATE TABLE `cds` (
   `codigo_genero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `cds`
+--
+
+INSERT INTO `cds` (`codigo`, `titulo`, `duracion`, `numero_canciones`, `unidades_disponibles`, `codigo_artista`, `codigo_genero`) VALUES
+('CDA00001', 'Live at Third Man Records', 35, 10, 100, 1, 3),
+('CDA00003', 'Space Oddity', 45, 9, 10, 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +75,14 @@ CREATE TABLE `directores` (
   `codigo` int(11) NOT NULL,
   `nombre` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `directores`
+--
+
+INSERT INTO `directores` (`codigo`, `nombre`) VALUES
+(1, 'Hermanos Russo'),
+(2, 'J. J. Abrams');
 
 -- --------------------------------------------------------
 
@@ -87,6 +112,14 @@ CREATE TABLE `editoriales` (
   `correo_electronico` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `editoriales`
+--
+
+INSERT INTO `editoriales` (`codigo`, `nombre`, `direccion`, `telefono`, `correo_electronico`) VALUES
+(1, 'Editorial 1', NULL, NULL, NULL),
+(2, 'Editorial 2', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +131,17 @@ CREATE TABLE `generos` (
   `nombre` varchar(120) NOT NULL,
   `descripcion` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `generos`
+--
+
+INSERT INTO `generos` (`codigo`, `nombre`, `descripcion`) VALUES
+(1, 'Rock', NULL),
+(2, 'Rap', NULL),
+(3, 'Pop', NULL),
+(4, 'Accion', NULL),
+(5, 'Ficcion', NULL);
 
 -- --------------------------------------------------------
 
@@ -116,6 +160,14 @@ CREATE TABLE `libros` (
   `codigo_editorial` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`codigo`, `titulo`, `autor`, `numero_paginas`, `ISBN`, `anio_publicacion`, `unidades_disponibles`, `codigo_editorial`) VALUES
+('LIB00001', 'Libro 1', 'Autor 1', 400, 'ISBN0001', 2001, 123, 1),
+('LIB00002', 'Libro 2 Cool', 'Autor 2', 400, 'ISBN0002', 2009, 50, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -125,7 +177,7 @@ CREATE TABLE `libros` (
 CREATE TABLE `revistas` (
   `codigo` varchar(8) NOT NULL,
   `titulo` varchar(120) NOT NULL,
-  `periodicidad` int(11) NOT NULL,
+  `periodicidad` varchar(120) NOT NULL,
   `fecha_publicacion` date NOT NULL,
   `unidades_disponibles` int(11) NOT NULL,
   `codigo_editorial` int(11) NOT NULL
@@ -197,25 +249,25 @@ ALTER TABLE `revistas`
 -- AUTO_INCREMENT de la tabla `artistas`
 --
 ALTER TABLE `artistas`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `directores`
 --
 ALTER TABLE `directores`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `editoriales`
 --
 ALTER TABLE `editoriales`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
