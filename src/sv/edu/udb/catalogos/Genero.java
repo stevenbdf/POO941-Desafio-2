@@ -31,7 +31,7 @@ public class Genero {
 
     public Boolean crearGenero(String nombre, String descripcion) {
         try {
-            int result = this.conexion.executeSQL("INSERT INTO " + NOMBRE_TABLA + "(nombre, descripcion) VALUES ('" + nombre + "', '" + descripcion + "')");
+            int result = this.conexion.executeSQL("INSERT INTO " + this.NOMBRE_TABLA + "(nombre, descripcion) VALUES ('" + nombre + "', '" + descripcion + "')");
 
             return result == 1;
         } catch (SQLException ex) {
@@ -43,7 +43,7 @@ public class Genero {
 
     public Boolean modificarGenero(int codigo, String nombre, String descripcion) {
         try {
-            int result = this.conexion.executeSQL("UPDATE " + NOMBRE_TABLA
+            int result = this.conexion.executeSQL("UPDATE " + this.NOMBRE_TABLA
                     + " SET nombre = '" + nombre + "', descripcion = '" + descripcion + "' WHERE codigo = " + codigo);
 
             return result == 1;
@@ -56,7 +56,7 @@ public class Genero {
 
     public Boolean eliminarGenero(int codigo) {
         try {
-            int result = this.conexion.executeSQL("DELETE FROM " + NOMBRE_TABLA + " WHERE codigo = " + codigo);
+            int result = this.conexion.executeSQL("DELETE FROM " + this.NOMBRE_TABLA + " WHERE codigo = " + codigo);
 
             return result == 1;
         } catch (SQLException ex) {

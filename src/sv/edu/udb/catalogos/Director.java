@@ -30,7 +30,7 @@ public class Director {
 
     public Boolean crearDirector(String nombre) {
         try {
-            int result = this.conexion.executeSQL("INSERT INTO " + NOMBRE_TABLA + "(nombre) VALUES ('" + nombre + "')");
+            int result = this.conexion.executeSQL("INSERT INTO " + this.NOMBRE_TABLA + "(nombre) VALUES ('" + nombre + "')");
 
             return result == 1;
         } catch (SQLException ex) {
@@ -42,7 +42,7 @@ public class Director {
 
     public Boolean modificarDirector(int codigo, String nombre) {
         try {
-            int result = this.conexion.executeSQL("UPDATE " + NOMBRE_TABLA + " SET nombre = '" + nombre + "' WHERE codigo = " + codigo);
+            int result = this.conexion.executeSQL("UPDATE " + this.NOMBRE_TABLA + " SET nombre = '" + nombre + "' WHERE codigo = " + codigo);
 
             return result == 1;
         } catch (SQLException ex) {
@@ -54,7 +54,7 @@ public class Director {
 
     public Boolean eliminarDirector(int codigo) {
         try {
-            int result = this.conexion.executeSQL("DELETE FROM " + NOMBRE_TABLA + " WHERE codigo = " + codigo);
+            int result = this.conexion.executeSQL("DELETE FROM " + this.NOMBRE_TABLA + " WHERE codigo = " + codigo);
 
             return result == 1;
         } catch (SQLException ex) {

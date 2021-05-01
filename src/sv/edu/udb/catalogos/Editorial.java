@@ -31,7 +31,7 @@ public class Editorial {
 
     public Boolean crearEditorial(String nombre, String direccion, String telefono, String correoElectronico) {
         try {
-            int result = this.conexion.executeSQL("INSERT INTO " + NOMBRE_TABLA
+            int result = this.conexion.executeSQL("INSERT INTO " + this.NOMBRE_TABLA
                     + "(nombre, direccion, telefono, correo_electronico) "
                     + "VALUES ('" + nombre + "', '" + direccion + "', '" + telefono + "', '" + correoElectronico + "')");
 
@@ -45,7 +45,7 @@ public class Editorial {
 
     public Boolean modificarEditorial(int codigo, String nombre, String direccion, String telefono, String correoElectronico) {
         try {
-            int result = this.conexion.executeSQL("UPDATE " + NOMBRE_TABLA + " "
+            int result = this.conexion.executeSQL("UPDATE " + this.NOMBRE_TABLA + " "
                     + "SET nombre = '" + nombre + "', direccion = '" + direccion + "', telefono = '" + telefono + "', correo_electronico = '" + correoElectronico + "' "
                     + "WHERE codigo = " + codigo);
 
@@ -59,7 +59,7 @@ public class Editorial {
 
     public Boolean eliminarEditorial(int codigo) {
         try {
-            int result = this.conexion.executeSQL("DELETE FROM " + NOMBRE_TABLA + " WHERE codigo = " + codigo);
+            int result = this.conexion.executeSQL("DELETE FROM " + this.NOMBRE_TABLA + " WHERE codigo = " + codigo);
 
             return result == 1;
         } catch (SQLException ex) {
